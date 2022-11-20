@@ -16,12 +16,17 @@ export default function Footer() {
         <MDBContainer className='p-4'>
           <MDBRow>
             <MDBCol lg='6' md='12' className='mb-4 mb-md-0'>
-              <h5 className='text-uppercase text-muted'>Footer Content</h5>
-
-              <p className="fs-6 fw-light text-muted">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis molestias.
-                Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam voluptatem veniam, est
-                atque cumque eum delectus sint!
+              <h5 className='text-uppercase text-muted text-center'>Contact us:</h5>
+              <p className="fs-6 fw-light text-muted text-start">
+                <i class="fa-solid fa-location-dot"></i>Nobelweg 10
+                1097 AR
+                <br />
+                Amsterdam
+                Noord-Holland
+                <br />
+                <i class="fa-solid fa-phone-flip"></i>020-4622922
+                <br />
+                <i class="fa-solid fa-envelope"></i>info@amsterdam.intratuin.nl
               </p>
             </MDBCol>
 
