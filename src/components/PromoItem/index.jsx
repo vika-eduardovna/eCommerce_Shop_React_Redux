@@ -6,18 +6,20 @@ export default function PromoItem({ image, title, price, discount }) {
     return (
         <div className={s.item}>
             <img src={image} alt="promo" />
-            <p className={s.title}>{title}</p>
+
             <div className={s.price}>
                 {
                     discount === ''
                         ? <p>{price}</p>
                         : <>
-                            <p style={{ textDecoration: 'line-through', color: 'grey' }}>{price}</p>
-                            <p style={{ color: '#FFA3A3' }}>{price - price * discount / 100}</p>
+                            <p className={s.full_price}>{price}€</p>
+                            <p className={s.price_disc}>{price - price * discount / 100}€</p>
+                            <p className={s.discount}>{discount}%</p>
                         </>
                 }
 
             </div>
+            <p className={s.title_price}>{title}</p>
         </div>
     )
 }
