@@ -7,6 +7,7 @@ import { getProducts } from '../../requests/categ_req'
 import DiscountSection from "../DiscountSection";
 import PromoContainer from "../PromoContainer";
 import Footer from "../Footer";
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
 
