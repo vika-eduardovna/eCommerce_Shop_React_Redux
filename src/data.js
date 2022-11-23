@@ -21,6 +21,28 @@ export const data = [
         category: 'Skincare',
         image: 'https://i.dummyjson.com/data/products/16/3.jpg'
     },
+    {
+        id: 5,
+        category: 'Smartphones',
+        image: 'https://i.dummyjson.com/data/products/1/3.jpg'
+    },
+
+    {
+        id: 6,
+        category: 'Laptops',
+        image: 'https://m.media-amazon.com/images/I/512Snmn-UrS.jpg',
+    },
+
+    {
+        id: 7,
+        category: 'Fragrances',
+        image: 'https://i.dummyjson.com/data/products/12/2.jpg'
+    },
+    {
+        id: 8,
+        category: 'Skincare',
+        image: 'https://i.dummyjson.com/data/products/16/3.jpg'
+    },
 ];
 
 export const promo_data = [

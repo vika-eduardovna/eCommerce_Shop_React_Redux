@@ -11,10 +11,10 @@ export default function NavBar() {
             <div className={['wrapper', s.navbar].join(' ')}>
                 <div className={s.logo}>
                     <img src={logo} alt="logo" />
-                    <Link to="/" className={s.catalog}>Catalog</Link>
+                    <Link to="/home" className={s.catalog}>Catalog</Link>
                 </div>
                 <ul className={s.nav_links}>
-                    <Link to="/categories">Categories</Link>
+                    <Link to="/all_categories">Categories</Link>
                     <Link to="/coupon">Coupon</Link>
                     <Link to="/actions">Actions</Link>
                     <Link to="/contacts">Contacts</Link>

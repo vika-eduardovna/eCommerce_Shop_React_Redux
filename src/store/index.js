@@ -4,7 +4,6 @@ import { promoReducer } from './reducer/promoReducer';
 
 
 const rootReducer = combineReducers({
-    //reviews: reviewsReducer,
     promo_data: promoReducer,
     data: categoriesReducer
 });

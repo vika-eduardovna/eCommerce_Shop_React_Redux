@@ -1,13 +1,16 @@
-import NavBar from "../NavBar";
-import HeaderSection from "../HeaderSection";
-import Categories from "../Categories";
+import NavBar from '../NavBar'
 import { useState, useEffect } from 'react'
 import { Context } from '../../context'
 import { getProducts } from '../../requests/categ_req'
-import DiscountSection from "../DiscountSection";
-import PromoContainer from "../PromoContainer";
-import Footer from "../Footer";
-import {Routes, Route} from 'react-router-dom'
+import Footer from '../Footer'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from '../../pages/HomePage'
+import AllCategoriesPage from '../../pages/AllCategoriesPage'
+import CategoryItemsPage from '../../pages/CategoryItemsPage'
+import ProductItemPage from '../../pages/ProductItemPage'
+import CartPage from '../../pages/CartPage'
+import NotFoundPage from '../../pages/NotFoundPage'
+
 
 function App() {
 
@@ -15,16 +18,20 @@ function App() {
   useEffect(() => {
     getProducts(setCategories);
   }, []);
-console.log(categories);
+  console.log(categories);
 
   return (
-    <Context.Provider value={{categories}}>
+    <Context.Provider value={{ categories }}>
       <NavBar />
-      <HeaderSection />
-      <Categories />
-      <DiscountSection/>
-      <PromoContainer/>
-      <Footer/>
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/all_categories" element={<AllCategoriesPage />} />
+        <Route path="/category_items" element={<CategoryItemsPage />} />
+        <Route path="/product_page" element={<ProductItemPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="*" element={<NotFoundPage/>}/>
+      </Routes>
+      <Footer />
     </Context.Provider>
   );
 }
