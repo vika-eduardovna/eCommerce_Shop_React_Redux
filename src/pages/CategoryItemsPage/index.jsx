@@ -3,6 +3,11 @@ import s from './style.module.sass'
 
 export default function CategoryItemsPage() {
   return (
-    <div>CategoryItemPage</div>
+    <div className='wrapper'>
+      <h3>Electronics</h3>
+      <div className={s.sorting_container}>
+
+      </div>
+    </div>
   )
 }

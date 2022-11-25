@@ -1,7 +1,5 @@
 import NavBar from '../NavBar'
 import { useState, useEffect } from 'react'
-import { Context } from '../../context'
-import { getProducts } from '../../requests/categ_req'
 import Footer from '../Footer'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '../../pages/HomePage'
@@ -14,14 +12,8 @@ import NotFoundPage from '../../pages/NotFoundPage'
 
 function App() {
 
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    getProducts(setCategories);
-  }, []);
-  console.log(categories);
-
   return (
-    <Context.Provider value={{ categories }}>
+    <>
       <NavBar />
       <Routes>
         <Route path="/home" element={<HomePage />} />
@@ -32,7 +24,7 @@ function App() {
         <Route path="*" element={<NotFoundPage/>}/>
       </Routes>
       <Footer />
-    </Context.Provider>
+    </>
   );
 }
 
