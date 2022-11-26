@@ -10,8 +10,8 @@ export default function NavBar() {
         <nav>
             <div className={['wrapper', s.navbar].join(' ')}>
                 <div className={s.logo}>
-                    <img src={logo} alt="logo" />
-                    <Link to="/home" className={s.catalog}>Catalog</Link>
+                    <Link to="/home"><img src={logo} alt="logo" /></Link>
+                    <div className={s.catalog}>Catalog</div>
                 </div>
                 <ul className={s.nav_links}>
                     <Link to="/all_categories">Categories</Link>
