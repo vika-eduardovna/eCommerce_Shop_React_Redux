@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import s from './style.module.sass'
 import CategorieItem from '../CategorieItem/index'
 import { useSelector, useDispatch } from 'react-redux'
@@ -6,15 +6,13 @@ import { loadCategory } from '../../store/asyncActions/products'
 
 export default function Categories() {
   const categories = useSelector(state => state.categories);
-  
   const dispatch = useDispatch();
-  
-  //const test_arr = categories.map(({category})=> category);
-  //const unique_array = [...new Set(test_arr)];
-  //console.log(unique_array);
+  console.log(categories);
+
+  const categoryIsFiltered = [...new Set(categories.map((value) => value.category))];
   
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(loadCategory);
   }, []);
 
@@ -27,10 +25,15 @@ export default function Categories() {
         </div>
         <div className={['wrapper', s.container].join(' ')}>
           {
-            categories.map(el => <CategorieItem key={el.id} {...el} />)
+            categoryIsFiltered.map(category => <CategorieItem key={category} category={category}/>) 
           }
         </div>
       </div>
     </section>
   )
 }
+{/*categoryIsFiltered.map((val, id) => {
+              return (
+                <div key={id}>{val}</div>
+              )
+            }) */}
