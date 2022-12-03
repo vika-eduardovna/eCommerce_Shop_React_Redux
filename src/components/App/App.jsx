@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '../../pages/HomePage'
 import CategoryItemsPage from '../../pages/CategoryItemsPage'
-import ProductItemPage from '../../pages/ProductItemPage'
+import ProductDescriptionPage from '../../pages/ProductDescriptionPage'
 import CartPage from '../../pages/CartPage'
 import NotFoundPage from '../../pages/NotFoundPage'
 import Layout from '../Layout'
-import Categories from '../Categories'
+import Categories from '../../pages/Categories/index'
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path='/categories' element={<Categories />} />
           <Route path='category/:category' element={<CategoryItemsPage />} />
-          <Route path='product/:id' element={<ProductItemPage />} />
+          <Route path='product/:id' element={<ProductDescriptionPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

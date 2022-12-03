@@ -6,7 +6,7 @@ import ProductContainer from '../../components/ProductContainer'
 export default function CategoryItemsPage() {
   return (
     <section className='wrapper'>
-      <h3 className={s.header}>Smartphones</h3>
+      <h3 className={s.header}>Category</h3>
       <div className={s.sorting_container}>
         <div className={s.price_box}>
           <span className={s.price}>Price</span>

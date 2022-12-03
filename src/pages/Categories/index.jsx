@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import s from './style.module.sass'
-import CategorieItem from '../CategorieItem/index'
+import CategorieItem from '../../components/CategorieItem/index'
 import { useSelector, useDispatch } from 'react-redux'
 import { loadCategory } from '../../store/asyncActions/products'
 

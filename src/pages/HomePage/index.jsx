@@ -1,6 +1,6 @@
 import React from 'react'
 import HeaderSection from '../../components/HeaderSection'
-import Categories from '../../components/Categories'
+import Categories from '../../pages/Categories/index'
 import DiscountSection from '../../components/DiscountSection'
 import PromoContainer from '../../components/PromoContainer'
 
