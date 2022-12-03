@@ -7,8 +7,7 @@ import { loadCategory } from '../../store/asyncActions/products'
 export default function Categories() {
   const categories = useSelector(state => state.categories);
   const dispatch = useDispatch();
-  console.log(categories);
-
+  
   const categoryIsFiltered = [...new Set(categories.map((value) => value.category))];
   
 
