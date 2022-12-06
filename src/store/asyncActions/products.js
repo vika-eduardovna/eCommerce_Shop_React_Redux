@@ -8,7 +8,6 @@ export const loadCategory = async dispatch => {
     }));
   
     dispatch({ type: 'LOAD_CATEGORY', payload })
-    console.log(payload);
 }
 
 
