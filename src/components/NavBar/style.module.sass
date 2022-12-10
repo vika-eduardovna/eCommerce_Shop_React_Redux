@@ -1,4 +1,4 @@
-$base-color: #339933
+$base-color: #6a797e
 
 .navbar
     height: 100px
@@ -7,6 +7,8 @@ $base-color: #339933
     justify-content: space-between
 .logo
     display: flex
+    width: 100px
+    height: 100px
     gap: 59px
     align-items: center
 
@@ -22,10 +24,31 @@ $base-color: #339933
     border: 2px solid $base-color
     border-radius: 5px
 
+.input
+    width: 443px
+    height: 45px
+    background-color: #fff
+    display: flex
+    align-items: center
+    padding: 13px
+
+    input
+        flex: 1
+        height: 40px
+        border: 3px solid $base-color
+        border-radius: 9px
+        background-color: #fff
+        padding-left: 15px
+        color: #616161
+        font-weight: 400
+        font-size: 14px
+        line-height: 150%
+
 nav
-    ul
+    .nav_links
         display: flex
         gap: 57px
+        margin-bottom: 0
 
     a
         text-decoration: none

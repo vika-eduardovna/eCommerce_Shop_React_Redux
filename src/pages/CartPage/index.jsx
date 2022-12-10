@@ -45,7 +45,9 @@ export default function CartPage() {
                       <hr className="my-4" />
                       <div>
                         {
-                          cart.map(product => <CartItem key={product.id} {...product} />)
+                          cart.length === 0
+                            ? <span>No selected items...</span>
+                            : cart.map(product => <CartItem key={product.id} {...product} />)
                         }
                       </div>
                       <hr className="my-4" />
@@ -66,12 +68,12 @@ export default function CartPage() {
                       </MDBTypography>
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-4">
-                        <MDBTypography tag="h5" className="text-uppercase">
-                        items: {count}
+                        <MDBTypography tag="h5" className="fs-4">
+                          items: {count}
                         </MDBTypography>
-                        <MDBTypography tag="h5">€{sum}</MDBTypography>
+                        <MDBTypography tag="h5" className="fs-4">{sum}€</MDBTypography>
                       </div>
-                      <MDBTypography tag="h5" className="text-uppercase mb-3">
+                      <MDBTypography tag="h5" className="fs-5 mb-3">
                         Shipping
                       </MDBTypography>
 
@@ -82,7 +84,7 @@ export default function CartPage() {
                           <option value="3">Try PRODelievery for free*</option>
                         </select>
                       </div>
-                      <MDBTypography tag="h5" className="text-uppercase mb-3">
+                      <MDBTypography tag="h5" className="fs-5 mb-3">
                         Give code
                       </MDBTypography>
                       <div className="mb-5">
@@ -92,10 +94,10 @@ export default function CartPage() {
                       <hr className="my-4" />
 
                       <div className="d-flex justify-content-between mb-5">
-                        <MDBTypography tag="h5" className="text-uppercase">
+                        <MDBTypography tag="h5" className="fs-4">
                           Total price
                         </MDBTypography>
-                        <MDBTypography tag="h5">{sum}€</MDBTypography>
+                        <MDBTypography tag="h5" className="fs-4">{sum}€</MDBTypography>
                       </div>
                       <MDBBtn className={s.btn} block size="lg">
                         Buy
