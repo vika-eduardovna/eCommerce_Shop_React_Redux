@@ -7,6 +7,7 @@ export default function ProductDescriptionPage() {
   const [product, setProduct] = useState({});
   const { title, description, price, discountPercentage, thumbnail } = product;
   const { id } = useParams();
+  const full_price = (price - price * discountPercentage / 100).toFixed(1);
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/${id}`)
@@ -29,8 +30,8 @@ export default function ProductDescriptionPage() {
               discountPercentage === ''
                 ? <div>{price}</div>
                 : <>
-                  <div className={s.full_price}>{price}€</div>
-                  <div className={s.price_disc}>{price - price * discountPercentage / 100}€</div>
+                  <div className={s.full_price}>{full_price}€</div>
+                  <div className={s.price_disc}>{price}€</div>
                   <div className={s.discount}>-{discountPercentage}%</div>
                 </>
             }

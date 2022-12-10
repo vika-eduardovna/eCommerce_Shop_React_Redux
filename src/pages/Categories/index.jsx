@@ -10,7 +10,6 @@ export default function Categories() {
   
   const categoryIsFiltered = [...new Set(categories.map((value) => value.category))];
   
-
   useEffect(() => {
     dispatch(loadCategory);
   }, []);
@@ -31,8 +30,3 @@ export default function Categories() {
     </section>
   )
 }
-{/*categoryIsFiltered.map((val, id) => {
-              return (
-                <div key={id}>{val}</div>
-              )
-            }) */}

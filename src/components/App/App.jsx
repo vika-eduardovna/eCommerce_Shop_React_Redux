@@ -18,8 +18,8 @@ function App() {
           <Route path='/categories' element={<Categories />} />
           <Route path='category/:category' element={<CategoryItemsPage />} />
           <Route path='product/:id' element={<ProductDescriptionPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path='/cart' element={<CartPage />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Route>
       </Routes>
     </>
