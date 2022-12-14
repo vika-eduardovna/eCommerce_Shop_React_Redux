@@ -10,14 +10,14 @@ export const add_to_cart_action = (id, title, price, image) => {
     }
 }
 
-export const increase_count_action = (id) => {
+export const increase_count_action = id => {
     return { type: INCREASE_COUNT, payload: id }
 }
-export const decrease_count_action = (id) => {
+export const decrease_count_action = id => {
     return { type: DECREASE_COUNT, payload: id }
 }
 
-export const clear_basket_action = () => {
+export const clear_cart_action = () => {
     return { type: CLEAR_CART }
 }
 

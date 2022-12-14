@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import s from './style.module.sass'
 import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { add_to_cart_action } from '../../store/reducer/cartReducer';
 
 export default function ProductDescriptionPage() {
+  const dispatch = useDispatch();
 
   const [product, setProduct] = useState({});
   const { title, description, price, discountPercentage, thumbnail } = product;

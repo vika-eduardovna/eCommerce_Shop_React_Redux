@@ -13,12 +13,12 @@ import {
 } from "mdb-react-ui-kit";
 import React from "react";
 import CartItem from "../../components/CartItem";
-import { useDispatch, useSelector } from 'react-redux'
+import {useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
+import { clear_cart_action } from "../../store/reducer/cartReducer";
 import s from './style.module.sass'
 
 export default function CartPage() {
-
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
   const sum = cart.reduce((prev, { price, count }) => prev + price * count, 0);
@@ -46,7 +46,7 @@ export default function CartPage() {
                       <div>
                         {
                           cart.length === 0
-                            ? <span>No selected items...</span>
+                            ? <span>You don't have any items in your cart. Let's go shopping...</span>
                             : cart.map(product => <CartItem key={product.id} {...product} />)
                         }
                       </div>
@@ -58,6 +58,9 @@ export default function CartPage() {
                               to shop</Link>
                           </MDBCardText>
                         </MDBTypography>
+                        <MDBBtn onClick={() => dispatch(clear_cart_action())} className={s.delete_btn} >
+                        Delete items
+                      </MDBBtn>
                       </div>
                     </div>
                   </MDBCol>

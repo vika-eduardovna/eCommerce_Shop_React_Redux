@@ -2,16 +2,16 @@ import React, { useEffect } from 'react'
 import s from './style.module.sass'
 import CategorieItem from '../../components/CategorieItem/index'
 import { useSelector, useDispatch } from 'react-redux'
-import { loadCategory } from '../../store/asyncActions/products'
+import { loadCategories } from '../../store/asyncActions/categories'
 
 export default function Categories() {
   const categories = useSelector(state => state.categories);
   const dispatch = useDispatch();
   
-  const categoryIsFiltered = [...new Set(categories.map((value) => value.category))];
+  //const categoryIsFiltered = [...new Set(categories.map((value) => value.category))];
   
   useEffect(() => {
-    dispatch(loadCategory);
+    dispatch(loadCategories);
   }, []);
 
   return (
@@ -23,7 +23,7 @@ export default function Categories() {
         </div>
         <div className={['wrapper', s.container].join(' ')}>
           {
-            categoryIsFiltered.map(category => <CategorieItem key={category} category={category}/>) 
+            categories.map(category => <CategorieItem key={category} category={category}/>) 
           }
         </div>
       </div>
