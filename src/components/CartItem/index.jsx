@@ -13,7 +13,7 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 import { useDispatch } from 'react-redux'
-import { increase_count_action, decrease_count_action } from '../../store/reducer/cartReducer';
+import { increase_count_action, decrease_count_action, delete_item_action } from '../../store/reducer/cartReducer';
 
 export default function CartItem({ id, title, price, count, image }) {
   const dispatch = useDispatch();
@@ -49,9 +49,9 @@ export default function CartItem({ id, title, price, count, image }) {
         </MDBTypography>
       </MDBCol>
       <MDBCol md="1" lg="1" xl="1" className="text-end">
-        <a href="#!" className="text-muted">
-          <MDBIcon fas icon="times" />
-        </a>
+        <div onClick={() => dispatch(delete_item_action(id))} className="text-muted">
+          <MDBIcon  fas icon="times" />
+        </div>
       </MDBCol>
     </MDBRow>
   )

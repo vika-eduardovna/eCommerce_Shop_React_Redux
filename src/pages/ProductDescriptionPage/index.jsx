@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import s from './style.module.sass'
 import { useParams } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { add_to_cart_action } from '../../store/reducer/cartReducer';
+import { loadItemProduct } from '../../store/asyncActions/product_item';
 
 export default function ProductDescriptionPage() {
   const dispatch = useDispatch();
-
-  const [product, setProduct] = useState({});
-  const { title, description, price, discountPercentage, thumbnail } = product;
-  const { id } = useParams();
+  const product = useSelector(state => state.product_item)
+  const { id, title, description, price, discountPercentage, thumbnail } = product;
+  const { product_id } = useParams();
   const full_price = (price - price * discountPercentage / 100).toFixed(1);
-
+  const addToCart = () => dispatch(add_to_cart_action(id, title, price, thumbnail));
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/${id}`)
-      .then(res => res.json())
-      .then(data => setProduct(data));
+    dispatch(loadItemProduct(product_id))
   }, [])
 
 
@@ -39,7 +37,7 @@ export default function ProductDescriptionPage() {
                 </>
             }
           </div>
-          <button className={s.btn}>Add to cart</button>
+          <button onClick={addToCart} className={s.btn}>Add to cart</button>
           <div className={s.divider}></div>
           <div className={s.header_description}>Description</div>
           <div className={s.description}>{description}</div>

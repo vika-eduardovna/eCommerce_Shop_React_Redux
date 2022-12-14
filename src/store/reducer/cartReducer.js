@@ -3,6 +3,7 @@ export const CLEAR_CART = 'CLEAR_CART'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const INCREASE_COUNT = 'INCREASE_COUNT'
 export const DECREASE_COUNT = 'DECREASE_COUNT'
+export const DELETE_ITEM = 'DELETE_ITEM'
 export const add_to_cart_action = (id, title, price, image) => {
     return {
         type: ADD_TO_CART,
@@ -19,6 +20,13 @@ export const decrease_count_action = id => {
 
 export const clear_cart_action = () => {
     return { type: CLEAR_CART }
+}
+
+export const delete_item_action = payload => {
+    return {
+        type: DELETE_ITEM,
+        payload
+    }
 }
 
 const checkProduct = (state, product) => {
@@ -47,6 +55,8 @@ export const cartReducer = (state = defaultState, action) => {
         return [...state]
     } else if (action.type === CLEAR_CART) {
         return defaultState
+    } else if (action.type === DELETE_ITEM) {
+        return state.filter(el => el.id !== action.payload)
     } else {
         return state
     }
