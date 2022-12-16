@@ -5,101 +5,108 @@ import {
   MDBCol,
   MDBRow,
   MDBIcon,
+  MDBInput,
   MDBBtn
 } from 'mdb-react-ui-kit';
 import s from './style.module.sass'
 
-export default function Footer() {
+export default function App() {
   return (
     <div className={['wrapper', s.container].join(' ')}>
-      <MDBFooter bgColor='bg-light bg-gradient' className='text-white text-center text-lg-left'>
-        <MDBContainer className='p-4'>
-          <MDBRow>
-            <MDBCol lg='6' md='12' className='mb-4 mb-md-0'>
-              <h5 className='text-uppercase text-muted text-center'>Contact us:</h5>
-              <p className="fs-6 fw-light text-muted text-start">
-                <i class="fa-solid fa-location-dot"></i>Nobelweg 10
-                1097 AR
-                <br />
-                Amsterdam
-                Noord-Holland
-                <br />
-                <i class="fa-solid fa-phone-flip"></i>020-4622922
-                <br />
-                <i class="fa-solid fa-envelope"></i>info@amsterdam.intratuin.nl
-              </p>
-            </MDBCol>
+      <MDBFooter bgColor='light' className='text-center text-lg-left'>
+        <MDBContainer className='pt-4'>
+          <section className='mb-4'>
+            <MDBBtn
+              rippleColor="dark"
+              color='link'
+              floating
+              className='text-muted m-1'
+              href='#!'
+              role='button'
+            >
+              <MDBIcon size='2x' fab className='fab fa-facebook-f' />
+            </MDBBtn>
 
-            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
-              <section className='mb-4'>
-                <MDBBtn
-                  floating
-                  className='m-1'
-                  style={{ backgroundColor: '#3b5998' }}
-                  href='#!'
-                  role='button'
-                >
-                  <MDBIcon fab icon='facebook-f' />
-                </MDBBtn>
+            <MDBBtn
+              rippleColor="dark"
+              color='link'
+              floating
+              className='text-muted m-1'
+              href='#!'
+              role='button'
+            >
+              <MDBIcon size='2x' fab className='fa-twitter' />
+            </MDBBtn>
 
-                <MDBBtn
-                  floating
-                  className='m-1'
-                  style={{ backgroundColor: '#55acee' }}
-                  href='#!'
-                  role='button'
-                >
-                  <MDBIcon fab icon='twitter' />
-                </MDBBtn>
+            <MDBBtn
+              rippleColor="dark"
+              color='link'
+              floating
+              className='text-muted m-1'
+              href='#!'
+              role='button'
+            >
+              <MDBIcon size='2x' fab className='fa-google' />
+            </MDBBtn>
 
-                <MDBBtn
-                  floating
-                  className='m-1'
-                  style={{ backgroundColor: '#dd4b39' }}
-                  href='#!'
-                  role='button'
-                >
-                  <MDBIcon fab icon='google' />
-                </MDBBtn>
-                <MDBBtn
-                  floating
-                  className='m-1'
-                  style={{ backgroundColor: '#ac2bac' }}
-                  href='#!'
-                  role='button'
-                >
-                  <MDBIcon fab icon='instagram' />
-                </MDBBtn>
+            <MDBBtn
+              rippleColor="dark"
+              color='link'
+              floating
+              className='text-muted m-1'
+              href='#!'
+              role='button'
+            >
+              <MDBIcon size='2x' fab className='fa-instagram' />
+            </MDBBtn>
 
-                <MDBBtn
-                  floating
-                  className='m-1'
-                  style={{ backgroundColor: '#0082ca' }}
-                  href='#!'
-                  role='button'
-                >
-                  <MDBIcon fab icon='linkedin-in' />
-                </MDBBtn>
+            <MDBBtn
+              rippleColor="dark"
+              color='link'
+              floating
 
-                <MDBBtn
-                  floating
-                  className='m-1'
-                  style={{ backgroundColor: '#333333' }}
-                  href='#!'
-                  role='button'
-                >
-                  <MDBIcon fab icon='github' />
-                </MDBBtn>
-              </section>
-            </MDBCol>
+              className='text-muted m-1'
+              href='#!'
+              role='button'
+            >
+              <MDBIcon size='2x' fab className='fa-linkedin' />
+            </MDBBtn>
 
+            <MDBBtn
+              rippleColor="dark"
+              color='link'
+              floating
+              className='text-muted m-1'
+              href='#!'
+              role='button'
+            >
+              <MDBIcon size='2x' fab className='fa-github' />
+            </MDBBtn>
+          </section>
+        </MDBContainer>
+        <MDBContainer className='p-4 pb-3'>
+          <form action=''>
+            <MDBRow className='d-flex justify-content-center'>
+              <MDBCol size='auto' className='mb-4 mb-md-0'>
+                <p className='pt-2 fs-6 text-muted'>
+                  <strong>Sign up for our newsletter</strong>
+                </p>
+              </MDBCol>
 
-          </MDBRow>
+              <MDBCol md='5' size='12' className='mb-4 mb-md-0 text-muted'>
+                <MDBInput type='text' id='form5Example2' label='Email address' />
+              </MDBCol>
+
+              <MDBCol size='auto' className='mb-4 mb-md-0' >
+                <MDBBtn className={s.subscribe_btn}>Subscribe</MDBBtn>
+              </MDBCol>
+            </MDBRow>
+          </form>
         </MDBContainer>
 
-        <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+        <div className='text-center p-3' style={{ backgroundColor: '#6a797e', color: 'white' }}>
           &copy; {new Date().getFullYear()} Copyright:{' '}
-          <a className='text-white' href='https://mdbootstrap.com/'>
+          <a className='text-light' href='https://mdbootstrap.com/'>
             MDBootstrap.com
           </a>
         </div>
