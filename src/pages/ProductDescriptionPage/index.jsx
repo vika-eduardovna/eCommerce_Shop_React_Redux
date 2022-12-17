@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import s from './style.module.sass'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
