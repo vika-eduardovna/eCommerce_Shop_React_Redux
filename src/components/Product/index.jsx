@@ -30,7 +30,11 @@ export default function Product({ id, image, title, price, discountPercentage })
                 }
             </div>
             <div className={s.title_price}>{title}</div>
-            <button onClick={addToCart}>Add to cart</button>
+            <button
+                className={s.add_to_cart_btn}
+                onClick={addToCart}>
+                Add to cart
+            </button>
         </div>
     )
 }

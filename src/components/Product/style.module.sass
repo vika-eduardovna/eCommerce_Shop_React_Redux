@@ -1,9 +1,17 @@
 .item
+    margin-top: 30px
     width: 318px
     height: 366px
     display: flex
     flex-direction: column
     justify-content: start
+    position: relative
+    overflow-y: hidden
+
+    &:hover .add_to_cart_btn
+        transform: translate(-50%, -120%)
+    
+       
 
 .image_block
     width: 100%
@@ -13,15 +21,7 @@
         object-fit: cover
         border: 1px solid #6a797e
 
-    button
-        background: #F1FFF1
-        border: 2px solid #6a797e
-        border-radius: 21px
-        padding: 25px 45px
-        font-weight: 600
-        font-size: 18px
-        line-height: 130%
-        color: #6a797e 
+    
 
 .price
     max-width: 100%
@@ -60,6 +60,7 @@
     color: #8B8B8B
 
 .title_price
+    margin-top: 15px
     display: inline-block
     text-align: start
     font-style: normal
@@ -68,3 +69,19 @@
     line-height: 130%
     letter-spacing: 0.03em
     color: #3A3A3A
+
+.add_to_cart_btn
+    margin-top: 15px
+    position: absolute
+    top: 100%
+    left: 50%
+    transform: translateX(-50%)
+    padding: 10px 30px
+    border-radius: 10px
+    transition: transform 0.5s ease
+    width: 279px
+    height: 72px
+    background: #d9e2e5
+    border: 2px solid #6a797e
+    border-radius: 21px
+    color: #6a797e
