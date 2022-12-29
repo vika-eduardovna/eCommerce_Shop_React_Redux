@@ -1,12 +1,14 @@
 import React from 'react'
 import s from './style.module.sass'
 import ProductContainer from '../../components/ProductContainer'
+import { useParams } from 'react-router-dom'
 
 
 export default function CategoryItemsPage() {
+  const {category} = useParams();
   return (
     <section className='wrapper'>
-      <h3 className={s.header}>Category</h3>
+      <h3 className={s.header}>{category}</h3>
       <div className={s.sorting_container}>
         <div className={s.price_box}>
           <span className={s.price}>Price</span>

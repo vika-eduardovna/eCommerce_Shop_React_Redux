@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './style.module.sass'
 import CategorieItem from '../../components/CategorieItem/index'
 import { useSelector, useDispatch } from 'react-redux'
@@ -7,9 +7,13 @@ import { loadCategories } from '../../store/asyncActions/categories'
 export default function Categories() {
   const categories = useSelector(state => state.categories);
   const dispatch = useDispatch();
-  
+  const imagePerRow = 4;
+  const [next, setNext] = useState(imagePerRow);
+  const handleMoreImage = () => {
+    setNext(next + imagePerRow);
+  };
   //const categoryIsFiltered = [...new Set(categories.map((value) => value.category))];
-  
+
   useEffect(() => {
     dispatch(loadCategories);
   }, []);
@@ -23,8 +27,18 @@ export default function Categories() {
         </div>
         <div className={['wrapper', s.container].join(' ')}>
           {
-            categories.map(category => <CategorieItem key={category} category={category}/>) 
+            categories.slice(0, next).map(category => <CategorieItem key={category} category={category} />)
           }
+        </div>
+        <div className={s.btn_block}>
+        {next < categories?.length && (
+          <button
+            className={s.load_more_btn}
+            onClick={handleMoreImage}
+          >
+            Load more
+          </button>
+        )}
         </div>
       </div>
     </section>
