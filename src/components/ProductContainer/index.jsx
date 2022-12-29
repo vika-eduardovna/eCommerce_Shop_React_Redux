@@ -3,24 +3,14 @@ import s from './style.module.sass'
 import { useSelector, useDispatch } from 'react-redux'
 import Product from '../Product'
 import { useParams } from "react-router-dom";
+import {loadProductsPerCategory} from '../../store/asyncActions/products'
 
 export default function ProductContainer() {
   const { category } = useParams();
   const products = useSelector(state => state.products);
   const dispatch = useDispatch();
-
-  const loadProductsPerCategory = async dispatch => {
-    const response = await fetch(`https://dummyjson.com/products/category/${category}`);
-    const data = await response.json()
-    const payload = data.products.map(({ id, title, price, discountPercentage, images }) => ({
-      id, title, price, discountPercentage,
-      image: images[1]
-    }))
-    dispatch({ type: 'LOAD_PRODUCTS', payload })
-  }
-
   useEffect(() => {
-    dispatch(loadProductsPerCategory)
+    dispatch(loadProductsPerCategory(category))
   }, [])
 
   return (
