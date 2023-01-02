@@ -2,10 +2,17 @@ import React from 'react'
 import s from './style.module.sass'
 import ProductContainer from '../../components/ProductContainer'
 import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { sort_products_action } from '../../store/reducer/productsReducer'
 
 
 export default function CategoryItemsPage() {
   const {category} = useParams();
+  const dispatch = useDispatch();
+  const sortOnChange = e => {
+    const value = e.target.value;
+    dispatch(sort_products_action(value))
+  }
   return (
     <section className='wrapper'>
       <h3 className={s.header}>{category}</h3>
@@ -23,10 +30,10 @@ export default function CategoryItemsPage() {
 
         <div className={s.sort_by}>
           <span className={s.price}>Sort by:</span>
-          <select defaultValue={'DEFAULT'}>
+          <select defaultValue={'DEFAULT'} onChange={sortOnChange}>
             <option value="DEFAULT" disabled>None</option>
-            <option value="ascending">Price (low - high)</option>
-            <option value="descending">Price (high - low)</option>
+            <option value="title">Name</option>
+            <option value="price">Price (high - low)</option>
           </select>
         </div>
       </div>

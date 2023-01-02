@@ -6,9 +6,11 @@ import { useSelector } from 'react-redux';
 
 export default function NavBar() {
     const cart = useSelector(state => state.cart);
+    const count = cart.reduce((prev, { count }) => prev + count, 0);
+
     const [filter, setFilter] = useState('');
     const searchText = e => setFilter(e.target.value);
-    const count = cart.reduce((prev, { count }) => prev + count, 0);
+    
     //let dataSearch = categories.filter(item => {
     //return Object.keys(item).some(key => item[key].toString().toLowerCase().includes(filter.toString().toLowerCase()))
     //})
