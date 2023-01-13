@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import { sort_products_action } from '../../store/reducer/productsReducer'
 
 
+
 export default function CategoryItemsPage() {
   const {category} = useParams();
   const dispatch = useDispatch();
@@ -13,9 +14,12 @@ export default function CategoryItemsPage() {
     const value = e.target.value;
     dispatch(sort_products_action(value))
   }
+
+  
+  const category_title = category[0].toUpperCase() + category.slice(1)
   return (
     <section className='wrapper'>
-      <h3 className={s.header}>{category}</h3>
+      <h3 className={s.header}>{category_title}</h3>
       <div className={s.sorting_container}>
         <div className={s.price_box}>
           <span className={s.price}>Price</span>
@@ -33,7 +37,7 @@ export default function CategoryItemsPage() {
           <select defaultValue={'DEFAULT'} onChange={sortOnChange}>
             <option value="DEFAULT" disabled>None</option>
             <option value="title">Name</option>
-            <option value="price">Price (high - low)</option>
+            <option value="price">Price (low to high)</option>
           </select>
         </div>
       </div>

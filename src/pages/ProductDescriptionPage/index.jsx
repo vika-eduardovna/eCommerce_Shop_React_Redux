@@ -18,31 +18,33 @@ export default function ProductDescriptionPage() {
 
 
   return (
-    <section className={['wrapper', s.container].join(' ')}>
-      <h5>{title}</h5>
-      <div className={s.item}>
-        <div className={s.img_block}>
-          <img src={thumbnail} alt={title} />
-        </div>
-
-        <div className={s.descr_block}>
-          <div className={s.price}>
-            {
-              discountPercentage === ''
-                ? <div>{price}</div>
-                : <>
-                  <div className={s.full_price}>{full_price}€</div>
-                  <div className={s.price_disc}>{price}€</div>
-                  <div className={s.discount}>-{discountPercentage}%</div>
-                </>
-            }
+    Object.keys(product).length === 0
+      ? 'Loading...'
+      : <section className={['wrapper', s.container].join(' ')}>
+        <h5>{title}</h5>
+        <div className={s.item}>
+          <div className={s.img_block}>
+            <img src={thumbnail} alt={title} />
           </div>
-          <button onClick={addToCart} className={s.btn}>Add to cart</button>
-          <div className={s.divider}></div>
-          <div className={s.header_description}>Description</div>
-          <div className={s.description}>{description}</div>
+
+          <div className={s.descr_block}>
+            <div className={s.price}>
+              {
+                discountPercentage === ''
+                  ? <div>{price}</div>
+                  : <>
+                    <div className={s.full_price}>{full_price}€</div>
+                    <div className={s.price_disc}>{price}€</div>
+                    <div className={s.discount}>-{discountPercentage}%</div>
+                  </>
+              }
+            </div>
+            <button onClick={addToCart} className={s.btn}>Add to cart</button>
+            <div className={s.divider}></div>
+            <div className={s.header_description}>Description</div>
+            <div className={s.description}>{description}</div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   )
 }

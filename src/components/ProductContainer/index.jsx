@@ -3,7 +3,7 @@ import s from './style.module.sass'
 import { useSelector, useDispatch } from 'react-redux'
 import Product from '../Product'
 import { useParams } from "react-router-dom";
-import {loadProductsPerCategory} from '../../store/asyncActions/products'
+import { loadProductsPerCategory } from '../../store/asyncActions/products'
 
 export default function ProductContainer() {
   const { category } = useParams();

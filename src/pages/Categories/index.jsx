@@ -3,6 +3,9 @@ import s from './style.module.sass'
 import CategorieItem from '../../components/CategorieItem/index'
 import { useSelector, useDispatch } from 'react-redux'
 import { loadCategories } from '../../store/asyncActions/categories'
+import { load_categories_action } from '../../store/reducer/categoriesReducer'
+import { loadImagePerCategory } from '../../store/asyncActions/categ_images'
+
 
 export default function Categories() {
   const categories = useSelector(state => state.categories);
@@ -23,7 +26,7 @@ export default function Categories() {
       <div className='wrapper'>
         <div className={s.categ_box}>
           <h3>Categories</h3>
-          <button>All categories</button>
+          <button onClick={() => dispatch(load_categories_action)}>All categories</button>
         </div>
         <div className={['wrapper', s.container].join(' ')}>
           {
@@ -31,14 +34,14 @@ export default function Categories() {
           }
         </div>
         <div className={s.btn_block}>
-        {next < categories?.length && (
-          <button
-            className={s.load_more_btn}
-            onClick={handleMoreImage}
-          >
-            Load more
-          </button>
-        )}
+          {next < categories?.length && (
+            <button
+              className={s.load_more_btn}
+              onClick={handleMoreImage}
+            >
+              Load more
+            </button>
+          )}
         </div>
       </div>
     </section>

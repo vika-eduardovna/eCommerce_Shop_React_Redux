@@ -1,3 +1,4 @@
+
 import { load_products_action } from "../reducer/productsReducer";
 
 export const loadProductsPerCategory = category => {
@@ -6,7 +7,7 @@ export const loadProductsPerCategory = category => {
     const data = await response.json()
     const payload = data.products.map(({ id, title, price, discountPercentage, images }) => ({
       id, title, price, discountPercentage,
-      image: images[1]
+      image: images[2]
     }))
     dispatch(load_products_action(payload))
   }

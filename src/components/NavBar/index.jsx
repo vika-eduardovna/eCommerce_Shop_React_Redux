@@ -23,7 +23,7 @@ export default function NavBar() {
                 </div>
                 <div className={s.catalog}>Catalog</div>
                 <div className={s.input}>
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                     <input
                         type='text'
                         name='search'
@@ -38,7 +38,7 @@ export default function NavBar() {
                     <NavLink to="/contacts">Contacts</NavLink>
                     <NavLink to="/cart">
                         <div className={s.counter}>
-                            <i class="fa-solid fa-bag-shopping"></i>
+                            <i className ="fa-solid fa-bag-shopping"></i>
                             {
                                 !!count && <span className={s.count}>{count}</span>
                             }
