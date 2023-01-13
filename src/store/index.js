@@ -4,7 +4,6 @@ import { promoReducer } from './reducer/promoReducer';
 import { productsReducer } from './reducer/productsReducer';
 import { cartReducer } from './reducer/cartReducer';
 import { productItemReducer } from './reducer/productItemReducer';
-import { categImagesReducer } from './reducer/categImagesReducer';
 import thunk from 'redux-thunk';
 
 
@@ -13,8 +12,7 @@ const rootReducer = combineReducers({
     categories: categoriesReducer,
     products: productsReducer,
     cart: cartReducer,
-    product_item: productItemReducer,
-    categ_images: categImagesReducer
+    product_item: productItemReducer, 
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));

@@ -4,7 +4,7 @@ import CategorieItem from '../../components/CategorieItem/index'
 import { useSelector, useDispatch } from 'react-redux'
 import { loadCategories } from '../../store/asyncActions/categories'
 import { load_categories_action } from '../../store/reducer/categoriesReducer'
-import { loadImagePerCategory } from '../../store/asyncActions/categ_images'
+
 
 
 export default function Categories() {
