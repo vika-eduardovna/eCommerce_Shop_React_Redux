@@ -26,7 +26,7 @@ export default function Categories() {
       <div className='wrapper'>
         <div className={s.categ_box}>
           <h3>Categories</h3>
-          <button onClick={() => dispatch(load_categories_action)}>All categories</button>
+          <button onClick={() => setNext(100)}>All categories</button>
         </div>
         <div className={['wrapper', s.container].join(' ')}>
           {

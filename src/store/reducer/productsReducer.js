@@ -7,14 +7,14 @@ export const load_products_action = payload => {
 }
 
 export const search_product_action = payload => {
-    return {type: SEARCH_PROD, payload }
+    return { type: SEARCH_PROD, payload }
 }
 export const sort_products_action = payload => {
-    return {type: SORT_PROD, payload }
+    return { type: SORT_PROD, payload }
 }
 
 const sort = (state, sort_value) => {
-    return [...state].sort((a,b) => {
+    return [...state].sort((a, b) => {
         if (typeof (a[sort_value]) === 'string') {
             return a[sort_value].localeCompare(b[sort_value])
         } else {
@@ -28,7 +28,7 @@ export const productsReducer = (state = defaultState, action) => {
     if (action.type === LOAD_PRODUCTS) {
         return action.payload
     } else if (action.type === SORT_PROD) {
-       return sort(state, action.payload)
+        return sort(state, action.payload)
     } else {
         return state
     }
