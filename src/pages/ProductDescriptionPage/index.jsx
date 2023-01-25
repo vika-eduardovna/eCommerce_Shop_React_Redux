@@ -4,14 +4,17 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { add_to_cart_action } from '../../store/reducer/cartReducer';
 import { loadItemProduct } from '../../store/asyncActions/product_item';
+import Spinner from '../../components/Spinner';
+import { ErrorMessage } from '../../components/ErrorMessage';
 
 export default function ProductDescriptionPage() {
   const dispatch = useDispatch();
-  const product = useSelector(state => state.product_item)
+  const  product  = useSelector(state => state.product_item)
   const { id, title, description, price, discountPercentage, thumbnail } = product;
   const { product_id } = useParams();
   const full_price = (price - price * discountPercentage / 100).toFixed(1);
   const addToCart = () => dispatch(add_to_cart_action(id, title, price, thumbnail));
+  
   useEffect(() => {
     dispatch(loadItemProduct(product_id))
   }, [])
@@ -19,7 +22,7 @@ export default function ProductDescriptionPage() {
 
   return (
     Object.keys(product).length === 0
-      ? 'Loading...'
+      ? <Spinner />
       : <section className={['wrapper', s.container].join(' ')}>
         <h5>{title}</h5>
         <div className={s.item}>

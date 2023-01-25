@@ -8,8 +8,6 @@ import { useSelector } from 'react-redux'
 
 export default function CategorieItem({ category }) {
   const link = `/category/${category}`;
-  //const images = useSelector(state => state.categ_images);
-  //const dispatch = useDispatch();
   const category_title = category[0].toUpperCase() + category.slice(1)
   const [images, setImages] = useState([]);
 
