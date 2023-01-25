@@ -17,7 +17,6 @@ export default function CategorieItem({ category }) {
     loadImagePerCategory(category, setImages);
   }, [category]);
 
-  console.log(images);
  
   return (
     <div className={s.item}>
