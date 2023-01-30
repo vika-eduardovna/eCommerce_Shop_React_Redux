@@ -7,7 +7,8 @@ export const loadProductsPerCategory = category => {
     const data = await response.json()
     const payload = data.products.map(({ id, title, price, discountPercentage, images }) => ({
       id, title, price, discountPercentage,
-      image: images[2]
+      image: images[2],
+      hide: false
     }))
     dispatch(load_products_action(payload))
   }

@@ -33,18 +33,27 @@ const sort = (state, sort_value) => {
     )
 }
 
-
 export const productsReducer = (state = defaultState, action) => {
     if (action.type === LOAD_PRODUCTS) {
         return action.payload
     } else if (action.type === SORT_PROD) {
         return sort(state, action.payload)
     } else if (action.type === PRICE_RANGE) {
-        return [...state.map(product => {
-            product.show_flg = product.price >= action.payload.min && product.price <= action.payload.max
-            return product
-        })]
-    } else {
+        //return [...state.map(product => {
+            //product.show_flg = product.price >= action.payload.min && product.price <= action.payload.max
+            //return product
+        //})]
+        const { min_value, max_value } = action.payload;
+        return [...state].map(el => {
+          if (el.price >= min_value && el.price <= max_value){
+            el.hide = false
+          } else {
+            el.hide = true
+          }
+          return el
+        })
+    } 
+    else {
         return state
     }
 } 

@@ -13,7 +13,7 @@ export default function CategoryItemsPage() {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
   //const [filteredProducts, setFilteredProducts] = useState(products);
-  const [priceParams, setPriceParams] = useState({ min: -Infinity, max: Infinity });
+  //const [priceParams, setPriceParams] = useState({ min: -Infinity, max: Infinity });
   //const priceSearch = () => {
     //setFilteredProducts(prev => prev.map(product => {
       //const {min, max} = priceParams;
@@ -25,36 +25,36 @@ export default function CategoryItemsPage() {
     dispatch(loadProductsPerCategory(category))
   }, [])
 
-  useEffect(() => {
-    dispatch(price_range_action(priceParams))
-  }, [priceParams]);
   
 
-  const maxInput = event => {
-    setPriceParams(prev => ({...prev, max: +event.target.value || Infinity}));
+  //const maxInput = event => {
+    //setPriceParams(prev => ({...prev, max: +event.target.value || Infinity}));
+  //}
+
+  //const minInput = event => {
+    //setPriceParams(prev => ({...prev, min: +event.target.value || -Infinity}));
+  //}
+
+  const sortOnChange = e => dispatch(sort_products_action(e.target.value))
+  const search = event => {
+    event.preventDefault();
+    const { min, max } = event.target;
+    const min_value = min.value || 0;
+    const max_value = max.value || Infinity;
+    dispatch(price_range_action({ min_value, max_value}));
   }
-
-  const minInput = event => {
-    setPriceParams(prev => ({...prev, min: +event.target.value || -Infinity}));
-
-  }
-
-  const sortOnChange = e => {
-    const value = e.target.value;
-    dispatch(sort_products_action(value))
-  }
-
   const category_title = category[0].toUpperCase() + category.slice(1)
 
   return (
     <section className='wrapper'>
       <h3 className={s.header}>{category_title}</h3>
       <div className={s.sorting_container}>
-        <div className={s.price_box}>
+        <form className={s.price_box} onSubmit={search}>
           <span className={s.price}>Price</span>
-          <input type="number" placeholder='from' onChange={minInput} value={priceParams.min}/>
-          <input type="number" placeholder='to' onChange={maxInput} value={priceParams.max}/>
-        </div>
+            <input type='number' placeholder='from' name='min' />
+            <input type='number' placeholder='to' name='max' />
+            <button>Search</button>
+        </form>
 
         <div className={s.discount_box}>
           <span className={s.price}>Discount %</span>
@@ -71,7 +71,11 @@ export default function CategoryItemsPage() {
           </select>
         </div>
       </div>
-      <ProductContainer />
+      <div className={['wrapper', s.container].join(' ')}>
+      {
+        products.filter(el => !el.hide).map(el => <Product key={el.id} {...el} />)
+      }
+    </div>
     </section>
   )
 }
