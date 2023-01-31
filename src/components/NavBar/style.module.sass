@@ -1,48 +1,29 @@
-$base-color: #6a797e
+@import '../../variables'
 
 .navbar
     height: 100px
     display: flex
     align-items: center
     justify-content: space-between
+    
 .logo
     display: flex
-    width: 100px
-    height: 100px
-    gap: 59px
+    gap: 30px
     align-items: center
 
-.catalog
-    display: flex
-    align-items: center
-    justify-content: center
-    color: white
-    text-decoration: none
-    width: 129px
-    height: 49px
-    background-color: $base-color
-    border: 2px solid $base-color
-    border-radius: 5px
+    .catalog
+        display: flex
+        align-items: center
+        justify-content: center
+        color: white
+        text-decoration: none
+        width: 129px
+        height: 49px
+        background-color: $main-color
+        border: 2px solid $main-color
+        border-radius: 5px
 
-.input
-    width: 443px
-    height: 45px
-    background-color: #fff
-    display: flex
-    align-items: center
-    padding: 13px
 
-    input
-        flex: 1
-        height: 40px
-        border: 3px solid $base-color
-        border-radius: 9px
-        background-color: #fff
-        padding-left: 15px
-        color: #616161
-        font-weight: 400
-        font-size: 14px
-        line-height: 150%
 
 nav
     .nav_links
@@ -60,8 +41,8 @@ nav
         color: #000000
 
         &:hover
-            color: $base-color
+            color: $main-color
 
         i
             font-size: 30px
-            color: $base-color
+            color: $main-color

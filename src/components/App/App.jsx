@@ -7,6 +7,7 @@ import NotFoundPage from '../../pages/NotFoundPage'
 import Layout from '../Layout'
 import Categories from '../../pages/Categories/index'
 import ContactsPage from '../../pages/ContactsPage'
+import AllProductsPage from '../../pages/AllProductsPage'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/categories' element={<Categories />} />
           <Route path='category/:category' element={<CategoryItemsPage />} />
           <Route path='product/:product_id' element={<ProductDescriptionPage />} />
+          <Route path='/all_products' element={<AllProductsPage/>}/>
           <Route path='/contacts' element={<ContactsPage/>}/>
           <Route path='/cart' element={<CartPage />} />
           <Route path='*' element={<NotFoundPage />} />

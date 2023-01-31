@@ -10,16 +10,16 @@ export default function PromoItem({ image, title, price, discount }) {
             <div className={s.price}>
                 {
                     discount === ''
-                        ? <p>{price}</p>
+                        ? <div>{price}</div>
                         : <>
-                            <p className={s.full_price}>{price}€</p>
-                            <p className={s.price_disc}>{price - price * discount / 100}€</p>
-                            <p className={s.discount}>{discount}%</p>
+                            <div className={s.full_price}>{price - price * discount / 100}€</div>
+                            <div className={s.price_disc}>{price}€</div>
+                            <div className={s.discount}>{discount}%</div>
                         </>
                 }
 
             </div>
-            <p className={s.title_price}>{title}</p>
+            <h6 className={s.title_price}>{title}</h6>
         </div>
     )
 }
