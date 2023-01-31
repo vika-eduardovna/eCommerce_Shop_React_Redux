@@ -1,5 +1,5 @@
 @import '../../variables.sass'
-    
+
 .container
     margin-top: 112px
     height: 476px
@@ -39,12 +39,16 @@
     gap: 30px
     margin-bottom: 45px
 
-    input
+    label
+        color: $main-color
+
+    .input_number
         width: 473px
-        height: 75.44px
-        border-radius: 20px
-        border-style: none
-        padding: 27px
+        input
+            height: 75.44px
+            border-radius: 20px
+            border: 2.39494px solid $main-color
+            padding: 27px
 
     button
         width: 473px
@@ -58,3 +62,7 @@
         letter-spacing: 0.03em
         color: $main-color
         cursor: pointer
+
+.error_message
+    color: red
+    font-size: 20px
