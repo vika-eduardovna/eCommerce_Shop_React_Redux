@@ -15,7 +15,7 @@ export default function HeaderSection() {
             </div>
 
             <div className={s.image}>
-                <img src={image} alt="flowers" />
+                <img src={image} alt="shopping_girl" />
             </div>
         </section>
     )

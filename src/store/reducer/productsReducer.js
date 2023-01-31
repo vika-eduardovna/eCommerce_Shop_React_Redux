@@ -39,10 +39,6 @@ export const productsReducer = (state = defaultState, action) => {
     } else if (action.type === SORT_PROD) {
         return sort(state, action.payload)
     } else if (action.type === PRICE_RANGE) {
-        //return [...state.map(product => {
-            //product.show_flg = product.price >= action.payload.min && product.price <= action.payload.max
-            //return product
-        //})]
         const { min_value, max_value } = action.payload;
         return [...state].map(el => {
           if (el.price >= min_value && el.price <= max_value){

@@ -1,3 +1,4 @@
+@import '../../variables'
 .container
     margin-top: 68px
     height: 680px
@@ -43,8 +44,12 @@ p
     font-weight: 700
     font-size: 25px
     line-height: 130%
-    color: #2D2D2D
+    color: $main-color
     cursor: pointer
+    &:hover
+        color: #FFFFFF
+        background-color: transparent
+        border: 2px solid #FFFFFF
 
 
 .learn_more_btn
@@ -58,8 +63,13 @@ p
     color: #FFFFFF
     background-color: transparent
     cursor: pointer
+    &:hover
+        background-color: white
+        border-style: none
+        color: $main-color
+        
 
 .image
     img
-        width: 800px
-        height: 800px
+        width: 900px
+        height: 900px

@@ -12,28 +12,9 @@ export default function CategoryItemsPage() {
   const { category } = useParams();
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
-  //const [filteredProducts, setFilteredProducts] = useState(products);
-  //const [priceParams, setPriceParams] = useState({ min: -Infinity, max: Infinity });
-  //const priceSearch = () => {
-    //setFilteredProducts(prev => prev.map(product => {
-      //const {min, max} = priceParams;
-      //product.show_flg = product.price >= min && product.price <= max;
-      //return product
-    //}))
-  //}
   useEffect(() => {
     dispatch(loadProductsPerCategory(category))
   }, [])
-
-  
-
-  //const maxInput = event => {
-    //setPriceParams(prev => ({...prev, max: +event.target.value || Infinity}));
-  //}
-
-  //const minInput = event => {
-    //setPriceParams(prev => ({...prev, min: +event.target.value || -Infinity}));
-  //}
 
   const sortOnChange = e => dispatch(sort_products_action(e.target.value))
   const search = event => {
@@ -73,7 +54,9 @@ export default function CategoryItemsPage() {
       </div>
       <div className={['wrapper', s.container].join(' ')}>
       {
-        products.filter(el => !el.hide).map(el => <Product key={el.id} {...el} />)
+        products
+        .filter(el => !el.hide)
+        .map(el => <Product key={el.id} {...el} />)
       }
     </div>
     </section>
