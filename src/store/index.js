@@ -4,6 +4,7 @@ import { promoReducer } from './reducer/promoReducer';
 import { productsReducer } from './reducer/productsReducer';
 import { cartReducer } from './reducer/cartReducer';
 import { productItemReducer } from './reducer/productItemReducer';
+import { allProductsReducer } from './reducer/allProductsReducer';
 import thunk from 'redux-thunk';
 
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     products: productsReducer,
     cart: cartReducer,
     product_item: productItemReducer,
+    all_products: allProductsReducer
      
 });
 

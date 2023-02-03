@@ -1,5 +1,6 @@
 
-import { load_products_action, load_all_products_action } from "../reducer/productsReducer";
+import { load_products_action } from "../reducer/productsReducer";
+import { load_all_products_action } from "../reducer/allProductsReducer";
 
 export const loadProductsPerCategory = category => {
     return async dispatch => {
@@ -16,12 +17,15 @@ export const loadProductsPerCategory = category => {
 
 export const loadAllProducts = () => {
   return async dispatch => {
-    const response = await fetch('https://dummyjson.com/products');
+    const response = await fetch('https://dummyjson.com/products?limit=0');
     const data = await response.json();
-    const payload = data.products.map(({id, title, price, images, stock, rating}) => ({
+    const payload = data.products.map(({id, title, price, thumbnail, stock, rating}) => ({
       id, title, price, stock, rating,
-    image: images[3]  
+    image: thumbnail
    }))
+   
    dispatch(load_all_products_action(payload))
+   
   }
+  
 }

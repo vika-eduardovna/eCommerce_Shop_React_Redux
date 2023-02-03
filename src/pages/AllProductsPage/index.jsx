@@ -2,21 +2,24 @@ import React, { useState, useEffect } from 'react'
 import s from './style.module.sass'
 import { loadAllProducts } from '../../store/asyncActions/products';
 import { useSelector, useDispatch } from 'react-redux';
+import Card from '../../components/Card';
+
 
 export default function AllProductsPage() {
-  const products = useSelector(state => state.products);
+  const products = useSelector(state => state.all_products);
   const [filter, setFilter] = useState('');
   const searchText = e => setFilter(e.target.value);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadAllProducts)
+    dispatch(loadAllProducts())
   }, []);
 
+
   let dataSearch = products.filter(item => {
-  return Object.keys(item).some(key => item[key].toString().toLowerCase().includes(filter.toString().toLowerCase()))
+    return Object.keys(item).some(key => item[key].toString().toLowerCase().includes(filter.toString().toLowerCase()))
   });
-  
+
   return (
     <section className={['wrapper', s.container].join(' ')}>
       <div className={s.header_block}>
@@ -28,54 +31,17 @@ export default function AllProductsPage() {
             name='search'
             value={filter}
             placeholder='Search...'
-            onChange={searchText} />
+            onChange={searchText.bind(this)} />
         </div>
       </div>
-
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card">
-            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill" />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road" />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers" />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers" />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className={s.prod_container}>
+        {
+          dataSearch.map(el => <Card key={el.id} {...el} />)
+        }
       </div>
     </section>
   )
 }
+
+
+
