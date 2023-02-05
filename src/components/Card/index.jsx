@@ -16,10 +16,11 @@ export default function Card({ title, price, image, stock, rating }) {
           disabled
           allowHalf
           defaultValue={rating}
+          value={rating}
           />
 
 
       </div>
     </div>
   );
-}
+} 
