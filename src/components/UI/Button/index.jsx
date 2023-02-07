@@ -1,8 +1,8 @@
 import React from 'react'
 import s from './style.module.sass'
 
-export default function Button() {
+export default function Button({ children, props}) {
   return (
-    <div>Button</div>
+    <button {...props} className={s.button}>{children}</button>
   )
 }

@@ -13,7 +13,7 @@ export default function HeaderSection() {
         gsap.to(imgref,
             1.8, {
             opacity: 1,
-            y: -50,
+            y: 25,
             ease: Power3.easeOut
         })
         gsap.to(pRef,

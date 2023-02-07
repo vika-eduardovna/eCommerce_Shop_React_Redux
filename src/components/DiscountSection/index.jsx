@@ -42,7 +42,7 @@ export default function DiscountSection() {
                         )}
                     />
                     {errors["phone-input"] && (
-                        <p className={s.error_message}>Invalid Phone</p>
+                        <div className={s.error_message}>Invalid Phone Number</div>
                     )}
                 </div>
                 <button>Get your discount</button>

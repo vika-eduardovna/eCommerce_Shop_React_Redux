@@ -3,9 +3,10 @@ import s from './style.module.sass'
 import ProductContainer from '../../components/ProductContainer'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { sort_products_action,  price_range_action} from '../../store/reducer/productsReducer'
+import { sort_products_action, price_range_action } from '../../store/reducer/productsReducer'
 import Product from '../../components/Product'
 import { loadProductsPerCategory } from '../../store/asyncActions/products'
+import Button from '../../components/UI/Button'
 
 
 export default function CategoryItemsPage() {
@@ -22,7 +23,7 @@ export default function CategoryItemsPage() {
     const { min, max } = event.target;
     const min_value = min.value || 0;
     const max_value = max.value || Infinity;
-    dispatch(price_range_action({ min_value, max_value}));
+    dispatch(price_range_action({ min_value, max_value }));
   }
   const category_title = category[0].toUpperCase() + category.slice(1)
 
@@ -32,9 +33,9 @@ export default function CategoryItemsPage() {
       <div className={s.sorting_container}>
         <form className={s.price_box} onSubmit={search}>
           <span className={s.price}>Price</span>
-            <input type='number' placeholder='from' name='min' />
-            <input type='number' placeholder='to' name='max' />
-            <button>Search</button>
+          <input type='number' placeholder='from' name='min' />
+          <input type='number' placeholder='to' name='max' />
+          <Button>Search</Button>
         </form>
 
         <div className={s.discount_box}>
@@ -53,12 +54,12 @@ export default function CategoryItemsPage() {
         </div>
       </div>
       <div className={['wrapper', s.container].join(' ')}>
-      {
-        products
-        .filter(el => !el.hide)
-        .map(el => <Product key={el.id} {...el} />)
-      }
-    </div>
+        {
+          products
+            .filter(el => !el.hide)
+            .map(el => <Product key={el.id} {...el} />)
+        }
+      </div>
     </section>
   )
 }

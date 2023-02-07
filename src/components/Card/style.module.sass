@@ -1,11 +1,15 @@
 .card
    width: 350px
-   height: 500px
+   height: 450px
    padding: 20px
    border-radius: 20px
-   box-shadow: 0px 1px 52px -11px rgba(181,179,179,0.3)
-   -webkit-box-shadow: 0px 1px 52px -11px rgba(181,179,179,0.3)
-   -moz-box-shadow: 0px 1px 52px -11px rgba(181,179,179,0.3)
+   border-radius: 50px
+   background: #e0e0e0
+   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff
+
+   &:hover
+      -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+      animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
 
 .img_block
    display: flex
@@ -15,10 +19,10 @@
       width: 310px
       height: 200px
       object-fit: cover
-      
+      border-radius: 20px
+
 .title
    margin-top: 15px
-
 
 .shipping
    margin-top: 50px
