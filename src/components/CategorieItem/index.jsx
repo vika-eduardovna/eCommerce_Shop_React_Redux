@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import s from './style.module.sass'
 import { Link } from 'react-router-dom'
 import { loadImagePerCategory } from '../../store/asyncActions/categ_images'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
 
 
 export default function CategorieItem({ category }) {
@@ -15,9 +13,7 @@ export default function CategorieItem({ category }) {
     loadImagePerCategory(category, setImages);
   }, [category]);
 
-
   return (
-
     <Link to={link}>
       <div className={s.item}>
         <img src={images[0]} alt={category} />
