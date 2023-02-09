@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import s from './style.module.sass'
-import ProductContainer from '../../components/ProductContainer'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { sort_products_action, price_range_action } from '../../store/reducer/productsReducer'
@@ -47,7 +46,7 @@ export default function CategoryItemsPage() {
           <span className={s.price}>Sort by:</span>
           <select defaultValue={'DEFAULT'} onChange={sortOnChange}>
             <option value="DEFAULT" disabled>None</option>
-            <option value="title">Name</option>
+            <option value="title">Title</option>
             <option value="ascending">Price (low to high)</option>
             <option value="descending">Price (high to low)</option>
           </select>

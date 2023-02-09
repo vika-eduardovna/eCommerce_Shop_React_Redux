@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import s from './style.module.sass'
 import { NavLink } from 'react-router-dom'
 import logo from './media/logo.png'
@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 export default function NavBar() {
     const cart = useSelector(state => state.cart);
     const count = cart.reduce((prev, { count }) => prev + count, 0);
+    const active_style = ({isActive}) => isActive ? s.active : ''
 
     return (
         <nav>
@@ -18,11 +19,11 @@ export default function NavBar() {
                 
                 
                 <ul className={s.nav_links}>
-                    <NavLink to="/categories">Categories</NavLink>
-                    <NavLink to="/coupon">Coupon</NavLink>
-                    <NavLink to="/all_products">Gallery</NavLink>
-                    <NavLink to="/contacts">Contacts</NavLink>
-                    <NavLink to="/cart">
+                    <NavLink className={active_style} to="/categories">Categories</NavLink>
+                    <NavLink className={active_style} to="/coupon">Coupon</NavLink>
+                    <NavLink className={active_style} to="/all_products">Gallery</NavLink>
+                    <NavLink className={active_style} to="/contacts">Contacts</NavLink>
+                    <NavLink className={active_style} to="/cart">
                         <div className={s.counter}>
                             <i className ="fa-solid fa-bag-shopping"></i>
                             {

@@ -15,11 +15,15 @@ export default function CategorieItem({ category }) {
     loadImagePerCategory(category, setImages);
   }, [category]);
 
- 
+
   return (
-    <div className={s.item}>
-      <img src={images[0]} alt={category} />
-      <Link to={link}><h5>{category_title}</h5></Link>
-    </div>
+
+    <Link to={link}>
+      <div className={s.item}>
+        <img src={images[0]} alt={category} />
+        <h5>{category_title}</h5>
+      </div>
+    </Link>
+
   )
 }

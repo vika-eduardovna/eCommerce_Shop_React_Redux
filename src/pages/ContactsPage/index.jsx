@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './style.module.sass'
-import GoogleMapsContainer from './GoogleMapsContainer';
 import { MDBIcon } from 'mdb-react-ui-kit';
 
 
@@ -24,8 +23,8 @@ export default function ContactsPage() {
                     <MDBIcon icon="print" className="me-3 fs-6 text-muted" />+ 31 234 567 89
                 </p>
             </div>
-            <div>
-                <GoogleMapsContainer />
+            <div className={s.map_box}>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.8522903853095!2d4.890907201929244!3d52.37309830475803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609d9faf2eaab%3A0x28528186b9782ff2!2sDam%20Square!5e0!3m2!1sru!2sde!4v1675939696444!5m2!1sru!2sde" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
     );

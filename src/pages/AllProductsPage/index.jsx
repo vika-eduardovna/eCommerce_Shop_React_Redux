@@ -3,6 +3,7 @@ import s from './style.module.sass'
 import { loadAllProducts } from '../../store/asyncActions/products';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../../components/Card';
+import Spinner from '../../components/Spinner';
 
 
 export default function AllProductsPage() {
@@ -36,7 +37,9 @@ export default function AllProductsPage() {
       </div>
       <div className={s.prod_container}>
         {
-          dataSearch.map(el => <Card key={el.id} {...el} />)
+          dataSearch.length === 0
+            ? <Spinner />
+            : dataSearch.map(el => <Card key={el.id} {...el} />)
         }
       </div>
     </section>

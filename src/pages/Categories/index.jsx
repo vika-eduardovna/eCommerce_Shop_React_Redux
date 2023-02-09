@@ -3,15 +3,13 @@ import s from './style.module.sass'
 import CategorieItem from '../../components/CategorieItem/index'
 import { useSelector, useDispatch } from 'react-redux'
 import { loadCategories } from '../../store/asyncActions/categories'
-import { load_categories_action } from '../../store/reducer/categoriesReducer'
-import Button from '../../components/UI/Button'
-
+import Spinner from '../../components/Spinner'
 
 
 export default function Categories() {
   const categories = useSelector(state => state.categories);
   const dispatch = useDispatch();
-  const imagePerRow = 4;
+  const imagePerRow = 8;
   const [next, setNext] = useState(imagePerRow);
   const handleMoreImage = () => {
     setNext(next + imagePerRow);
@@ -31,7 +29,9 @@ export default function Categories() {
         </div>
         <div className={['wrapper', s.container].join(' ')}>
           {
-            categories.slice(0, next).map(category => <CategorieItem key={category} category={category} />)
+            categories.length === 0
+              ? <Spinner />
+              : categories.slice(0, next).map(category => <CategorieItem key={category} category={category} />)
           }
         </div>
         <div className={s.btn_block}>
