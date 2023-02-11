@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './style.module.sass'
 
-export default function PromoItem({ image, title, price, discount }) {
+export default function PromoItem({id, image, title, price, discountPercentage }) {
 
     return (
         <div className={s.item}>
@@ -9,12 +9,12 @@ export default function PromoItem({ image, title, price, discount }) {
 
             <div className={s.price}>
                 {
-                    discount === ''
+                    discountPercentage === ''
                         ? <div>{price}</div>
                         : <>
-                            <div className={s.full_price}>{price - price * discount / 100}€</div>
+                            <div className={s.full_price}>{price - price * discountPercentage / 100}€</div>
                             <div className={s.price_disc}>{price}€</div>
-                            <div className={s.discount}>{discount}%</div>
+                            <div className={s.discount}>{discountPercentage}%</div>
                         </>
                 }
 

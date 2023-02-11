@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PromoItem from '../PromoItem/index'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { loadAllProducts } from '../../store/asyncActions/products'
 import s from './style.module.sass'
+import Spinner from '../Spinner'
+import Card from '../Card'
 
 export default function PromoContainer() {
-  const state = useSelector(state => state.promo_data);
+  const state = useSelector(state => state.all_products);
+  const dispatch = useDispatch();
+  const id = Math.floor(Math.random() * 100);
+  console.log(id)
+
+  useEffect(() => {
+    dispatch(loadAllProducts())
+  }, []);
+
   return (
     <section>
       <div className='wrapper'>
@@ -14,7 +25,9 @@ export default function PromoContainer() {
         </div>
         <div className={['wrapper', s.container].join(' ')}>
           {
-            state.map(el => <PromoItem key={el.id} {...el} />)
+            state.length === 0
+              ? <Spinner />
+              : state.slice(0, 6).map(el => <Card key={el.id} {...el} />)
           }
         </div>
       </div>

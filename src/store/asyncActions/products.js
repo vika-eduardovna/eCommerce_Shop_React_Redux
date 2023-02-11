@@ -19,8 +19,8 @@ export const loadAllProducts = () => {
   return async dispatch => {
     const response = await fetch('https://dummyjson.com/products?limit=0');
     const data = await response.json();
-    const payload = data.products.map(({id, title, price, thumbnail, stock, rating}) => ({
-      id, title, price, stock, rating,
+    const payload = data.products.map(({id, title, price, thumbnail, stock, rating, discountPercentage}) => ({
+      id, title, price, stock, rating, discountPercentage,
     image: thumbnail
    }))
    

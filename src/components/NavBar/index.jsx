@@ -23,7 +23,7 @@ export default function NavBar() {
                     <NavLink className={active_style} to="/coupon">Coupon</NavLink>
                     <NavLink className={active_style} to="/all_products">Gallery</NavLink>
                     <NavLink className={active_style} to="/contacts">Contacts</NavLink>
-                    <NavLink className={active_style} to="/cart">
+                    <NavLink to="/cart">
                         <div className={s.counter}>
                             <i className ="fa-solid fa-bag-shopping"></i>
                             {
