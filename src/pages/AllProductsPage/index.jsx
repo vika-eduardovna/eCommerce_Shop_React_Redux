@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import s from './style.module.sass'
 import { loadAllProducts } from '../../store/asyncActions/products';
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,9 +13,14 @@ export default function AllProductsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadAllProducts())
+    dispatch(loadAllProducts());
   }, []);
 
+  const getDataPagination = () => {
+    fetch('https://dummyjson.com/products?limit=10')
+      .then(res => res.json())
+      .then(console.log);
+  }
 
   let dataSearch = products.filter(item => {
     return Object.keys(item).some(key => item[key].toString().toLowerCase().includes(filter.toString().toLowerCase()))
