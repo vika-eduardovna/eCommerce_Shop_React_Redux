@@ -7,7 +7,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import s from './style.module.sass'
 
-export default function PromoContainer() {
+ function PromoContainer(ref) {
   const state = useSelector(state => state.all_products);
   const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ export default function PromoContainer() {
   }, []);
 
   return (
-    <section>
+    <section id='promo'>
       <div className='wrapper'>
         <div className={s.categ_box}>
           <h3>Promotions</h3>
@@ -70,3 +70,5 @@ export default function PromoContainer() {
     </section>
   )
 }
+
+export default PromoContainer

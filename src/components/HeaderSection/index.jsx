@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react'
 import { gsap, Power3 } from 'gsap'
-import s from './style.module.sass'
 import image from './media/main_section.png'
+import { Link } from 'react-scroll'
+import s from './style.module.sass'
 
 export default function HeaderSection() {
 
@@ -43,7 +44,9 @@ export default function HeaderSection() {
                 <p ref={el => { pRef = el }}>New season</p>
                 <h2 ref={el => { headerRef = el }}>Sale</h2>
                 <div className={s.buttons}>
-                    <button className={s.promo_btn}>All promotions</button>
+                    <Link to='promo' smooth={true} duration={1000}>
+                        <button className={s.promo_btn}>All promotions</button>
+                    </Link>
                     <button className={s.learn_more_btn}>Learn more</button>
                 </div>
             </div>
