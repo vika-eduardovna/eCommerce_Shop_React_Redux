@@ -7,7 +7,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import s from './style.module.sass'
 
- function PromoContainer(ref) {
+function PromoContainer(ref) {
   const state = useSelector(state => state.all_products);
   const dispatch = useDispatch();
 
@@ -43,8 +43,6 @@ import s from './style.module.sass'
         <div className='wrapper'>
           <Carousel
             className={s.container}
-            swipeable={false}
-            draggable={false}
             showDots={true}
             responsive={responsive}
             infinite={true}
@@ -61,11 +59,13 @@ import s from './style.module.sass'
             {
               state.length === 0
                 ? <Spinner />
-                : state.slice(0, 10).map(el => <Card key={el.id} {...el} />)
+                : state
+                  .sort(() => 0.5 - Math.random())
+                  .slice(0, 10)
+                  .map(el => <Card key={el.id} {...el} />)
             }
           </Carousel>
         </div>
-
       </div>
     </section>
   )

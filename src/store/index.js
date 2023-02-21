@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
     products: productsReducer,
     cart: cartReducer,
     product_item: productItemReducer,
-    all_products: allProductsReducer
+    all_products: allProductsReducer,
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
