@@ -1,9 +1,16 @@
-const defaultState = [];
+const getData = () => {
+    const data = JSON.parse(localStorage.getItem('cart_items')) ?? [];
+    return data
+}
+
+const defaultState = getData()
 export const CLEAR_CART = 'CLEAR_CART'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const INCREASE_COUNT = 'INCREASE_COUNT'
 export const DECREASE_COUNT = 'DECREASE_COUNT'
 export const DELETE_ITEM = 'DELETE_ITEM'
+
+
 export const add_to_cart_action = (id, title, price, image) => {
     return {
         type: ADD_TO_CART,
@@ -37,6 +44,10 @@ const checkProduct = (state, product) => {
     } else {
         return [...state, { ...product, count: 1 }]
     }
+}
+
+const storeData = state => {
+    localStorage.setItem('cart_items', JSON.stringify(state))
 }
 
 export const cartReducer = (state = defaultState, action) => {
