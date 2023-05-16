@@ -1,4 +1,5 @@
 Click here to look at the project https://e-commerce-shop-react-redux.vercel.app/
+
 Technologies used in this project:
 React.js
 Redux
